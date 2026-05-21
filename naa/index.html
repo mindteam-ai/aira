@@ -15,7 +15,7 @@
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{min-height:100%}
-body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear-gradient(160deg,#0a5587 0%,#1785bd 28%,#2fa89d 62%,#2a9d5f 100%);background-attachment:fixed}
+body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear-gradient(175deg,#062b48 0%,#0c4775 35%,#15689f 72%,#1c8ac4 100%);background-attachment:fixed}
 
 /* Layout */
 .screen{display:none;min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:48px 24px}
@@ -23,15 +23,15 @@ body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear
 /* Card no longer renders as a panel on quiz screens — content floats on the gradient */
 .card{background:transparent;border-radius:0;padding:0;max-width:640px;width:100%;box-shadow:none}
 
-/* Logo (icon-only on quiz screens) */
-.logo{margin-bottom:36px;line-height:0;display:flex;justify-content:flex-start}
+/* Logo — full wordmark, bottom-left, aligned with content */
+.logo{line-height:0;display:flex;justify-content:flex-start;margin-top:48px}
+.logo svg.mt-logo{height:32px;width:auto;display:block}
 .logo svg.mt-icon{height:48px;width:48px;display:block}
-.logo svg.mt-logo{height:30px;width:auto;display:block}
 
-/* Progress */
-.progress{display:flex;gap:8px;margin-bottom:28px}
-.progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.22);transition:background 0.3s}
-.progress-dot.done{background:rgba(255,255,255,0.55)}
+/* Progress dots (live in the bottom nav row) */
+.progress{display:flex;gap:8px;align-items:center;justify-content:center;flex:1}
+.progress-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.25);transition:background 0.3s}
+.progress-dot.done{background:rgba(255,255,255,0.6)}
 .progress-dot.active{background:#fff}
 
 /* Question */
@@ -52,22 +52,20 @@ body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear
 .option .opt-sub{font-size:13px;color:#666;margin-top:3px;font-weight:400}
 
 /* Nav */
-.nav{display:flex;justify-content:space-between;align-items:center;margin-top:36px;gap:12px}
-.btn{padding:14px 28px;border-radius:10px;font-size:15px;font-weight:400;cursor:pointer;border:none;transition:all 0.15s;font-family:'Lato',sans-serif}
-.btn-primary{background:#fff;color:#1a1a1a;font-weight:400;box-shadow:0 2px 8px rgba(0,0,0,0.12)}
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,0.18)}
-.btn-primary:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
-.btn-ghost{background:transparent;color:rgba(255,255,255,0.7);font-weight:400}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:40px;gap:16px}
+.btn{padding:14px 28px;border-radius:10px;font-size:15px;font-weight:400;cursor:pointer;transition:all 0.15s;font-family:'Lato',sans-serif;border:2px solid transparent}
+.btn-primary{background:#fff;color:#1a1a1a;font-weight:400;border:2px solid #17a0db;box-shadow:0 3px 10px rgba(0,0,0,0.16)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(0,0,0,0.22)}
+.btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.7);font-weight:400;border:2px solid transparent}
 .btn-ghost:hover{color:#fff}
 
 /* Welcome screen */
 .welcome-icon{width:64px;height:64px;margin-bottom:24px}
-.welcome-title{font-size:36px;font-weight:400;line-height:1.2;margin-bottom:14px;letter-spacing:-0.01em;color:#fff}
+.welcome-title{font-size:36px;font-weight:400;line-height:1.2;margin-bottom:18px;letter-spacing:-0.01em;color:#fff}
 .welcome-title strong{font-weight:400}
-.welcome-sub{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.55;margin-bottom:36px;max-width:560px}
-.welcome-meta{display:flex;gap:28px;margin-bottom:36px;flex-wrap:wrap}
-.meta-item{font-size:13px;color:rgba(255,255,255,0.72);line-height:1.4}
-.meta-item strong{color:#fff;display:block;font-size:15px;font-weight:400;margin-bottom:2px;letter-spacing:0.005em}
+.welcome-sub{font-size:17px;color:rgba(255,255,255,0.82);line-height:1.55;margin-bottom:40px;max-width:640px}
+.welcome-actions{display:flex;align-items:center;gap:16px}
 
 /* Plan screen */
 .plan-screen{min-height:100vh;padding:0}
@@ -131,16 +129,18 @@ body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear
 .email-form{display:flex;gap:10px;flex-wrap:wrap}
 .email-input{flex:1;min-width:220px;padding:13px 16px;border-radius:10px;border:1.5px solid #e0e0e0;font-size:15px;font-family:'Lato',sans-serif;outline:none;background:#fff;color:#1a1a1a}
 .email-input:focus{border-color:#17a0db}
-.btn-email{background:#1a1a1a;color:#fff;padding:13px 26px;border-radius:10px;border:none;font-size:15px;font-weight:400;cursor:pointer;white-space:nowrap;font-family:'Lato',sans-serif;transition:transform 0.15s, box-shadow 0.15s}
-.btn-email:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2)}
+.btn-email{background:#1a1a1a;color:#fff;padding:13px 26px;border-radius:10px;border:2px solid #17a0db;font-size:15px;font-weight:400;cursor:pointer;white-space:nowrap;font-family:'Lato',sans-serif;transition:transform 0.15s, box-shadow 0.15s;box-shadow:0 3px 10px rgba(0,0,0,0.18)}
+.btn-email:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(0,0,0,0.25)}
 .email-confirm{display:none;background:#f0fbf3;border:1px solid #32b456;border-radius:10px;padding:14px 18px;margin-top:14px;font-size:14px;color:#1a5c2a}
 .opt-in{display:flex;align-items:flex-start;gap:10px;margin-top:18px;cursor:pointer}
 .opt-in input[type="checkbox"]{width:18px;height:18px;margin-top:1px;flex-shrink:0;accent-color:#32b456;cursor:pointer}
 .opt-in label{font-size:13px;color:#666;line-height:1.5;cursor:pointer}
 
 /* Footer */
-.plan-footer{text-align:center;padding:32px 24px;color:rgba(255,255,255,0.7);font-size:13px}
-.plan-footer a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4);text-underline-offset:3px}
+.plan-footer{text-align:left;padding:24px 24px 48px;color:rgba(255,255,255,0.7);font-size:13px;max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.plan-footer .logo{margin-top:24px}
+.plan-footer .logo svg.mt-logo{height:32px}
+.plan-footer-text a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,0.4);text-underline-offset:3px}
 
 /* Day number colors */
 .d1{background:#17a0db}
@@ -156,47 +156,47 @@ input{-webkit-user-select:text;user-select:text}
 
 /* Bump sizes for tablet viewing — iPad portrait optimized */
 @media (min-width: 700px) {
-  .screen{padding:48px 32px}
-  .card{max-width:720px;padding:0}
-  .welcome-title{font-size:48px;margin-bottom:18px;line-height:1.15}
-  .welcome-sub{font-size:21px;margin-bottom:44px;max-width:640px}
-  .welcome-meta{gap:36px;margin-bottom:44px}
-  .meta-item{font-size:15px}
-  .meta-item strong{font-size:17px}
-  .q-title{font-size:36px;margin-bottom:14px;line-height:1.2}
-  .q-sub{font-size:18px;margin-bottom:34px}
-  .q-label{font-size:13px;margin-bottom:18px}
-  .group-label{font-size:13px;margin:30px 0 12px}
-  .option{font-size:19px;padding:22px 26px;border-radius:14px}
-  .option .opt-sub{font-size:15px;margin-top:4px}
-  .options{gap:12px}
-  .btn{padding:18px 36px;font-size:18px;border-radius:12px}
-  .logo{margin-bottom:44px}
+  .screen{padding:40px 32px;justify-content:flex-start;padding-top:64px}
+  .card{max-width:820px;padding:0}
+  .welcome-title{font-size:58px;margin-bottom:22px;line-height:1.1}
+  .welcome-sub{font-size:23px;margin-bottom:48px;max-width:760px;line-height:1.5}
+  .q-title{font-size:46px;margin-bottom:16px;line-height:1.15}
+  .q-sub{font-size:20px;margin-bottom:40px}
+  .q-label{font-size:14px;margin-bottom:24px;letter-spacing:0.18em}
+  .group-label{font-size:14px;margin:34px 0 14px;letter-spacing:0.15em}
+  .option{font-size:22px;padding:26px 30px;border-radius:14px}
+  .option .opt-sub{font-size:16px;margin-top:5px}
+  .options{gap:14px}
+  .btn{padding:18px 38px;font-size:20px;border-radius:12px}
+  .nav{margin-top:48px;gap:24px}
+  .logo{margin-top:64px}
   .logo svg.mt-icon{height:60px;width:60px}
-  .logo svg.mt-logo{height:42px}
+  .logo svg.mt-logo{height:36px}
   .welcome-icon{width:80px;height:80px}
-  .progress-dot{width:12px;height:12px}
-  .plan-header{padding:48px 56px 32px}
-  .plan-title{font-size:36px}
-  .plan-tag{font-size:13px;padding:6px 16px}
-  .plan-body{max-width:820px;padding:8px 36px 48px}
-  .hesitation-note{font-size:15px;padding:18px 22px}
-  .day-header{padding:26px 30px;gap:20px}
-  .day-num{width:46px;height:46px;font-size:15px}
-  .day-title{font-size:19px}
+  .progress-dot{width:14px;height:14px}
+  .progress{gap:12px}
+  .welcome-actions{gap:24px}
+  .plan-header{padding:64px 32px 24px}
+  .plan-title{font-size:42px;line-height:1.15}
+  .plan-tag{font-size:14px;padding:6px 16px}
+  .plan-body{max-width:820px;padding:8px 32px 48px}
+  .hesitation-note{font-size:16px;padding:20px 24px}
+  .day-header{padding:28px 32px;gap:22px}
+  .day-num{width:48px;height:48px;font-size:16px}
+  .day-title{font-size:20px}
   .day-outcome{font-size:15px}
   .day-time{font-size:14px}
-  .day-body{padding:0 30px 30px}
+  .day-body{padding:0 32px 32px}
   .steps li{font-size:16px}
   .step-num{width:30px;height:30px;font-size:13px}
   .prompt-box{padding:22px 24px}
   .prompt-box pre{font-size:15px}
   .example-content{font-size:15px}
   .email-section{padding:44px;border-radius:16px;margin-top:36px}
-  .email-title{font-size:26px}
-  .email-sub{font-size:16px}
-  .email-input{font-size:18px;padding:16px 20px}
-  .btn-email{font-size:18px;padding:16px 32px}
+  .email-title{font-size:28px}
+  .email-sub{font-size:17px}
+  .email-input{font-size:19px;padding:16px 20px}
+  .btn-email{font-size:19px;padding:16px 32px}
   .opt-in label{font-size:15px}
 }
 
@@ -283,32 +283,25 @@ input{-webkit-user-select:text;user-select:text}
 <!-- SCREEN 1: Welcome -->
 <div class="screen active" id="screen-welcome">
 <div class="card">
-  <div class="logo">
-    <svg class="mt-icon" viewBox="0 0 86.4 88.57" aria-label="Mindteam"><path fill="#32B456" d="M49.14,72.83c4.13,0,11.51,0,19.62,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85-.04-11.48-.04-21.57,0-.75-.52-1.43-1.48-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.44,2.62,2.13,2.62Z"/><path fill="#17A0DB" d="M37.27,72.83c-4.13,0-11.51,0-19.62,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.53-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.13,2.62Z"/><path fill="#A4D17C" d="M49.13,41.33c4.13,0,11.52,0,19.63,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75-.55-1.43-1.52-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.43,2.62,2.12,2.62Z"/><path fill="#74CCCD" d="M37.27,41.33c-4.13,0-11.52,0-19.63,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.52-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.12,2.62Z"/></svg>
-  </div>
   <div class="welcome-title">Your <strong>5-day AI quick start,</strong> built for how you actually work.</div>
   <div class="welcome-sub">Answer three questions and you'll see a personalized plan — specific to your practice, your comfort level, and your schedule. No case materials needed. No commitment required.</div>
-  <div class="welcome-meta">
-    <div class="meta-item"><strong>3 questions</strong>takes 60 seconds</div>
-    <div class="meta-item"><strong>5 days</strong>20–60 min each</div>
-    <div class="meta-item"><strong>Your plan</strong>yours to keep</div>
+  <div class="welcome-actions">
+    <button class="btn btn-primary" onclick="goTo('screen-q1')">Get my plan →</button>
   </div>
-  <button class="btn btn-primary" onclick="goTo('screen-q1')">Get my plan →</button>
+  <div class="logo">
+    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
+  </div>
 </div>
 </div>
 
 <!-- SCREEN 2: Question 1 -->
 <div class="screen" id="screen-q1">
 <div class="card">
-  <div class="logo">
-    <svg class="mt-icon" viewBox="0 0 86.4 88.57" aria-label="Mindteam"><path fill="#32B456" d="M49.14,72.83c4.13,0,11.51,0,19.62,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85-.04-11.48-.04-21.57,0-.75-.52-1.43-1.48-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.44,2.62,2.13,2.62Z"/><path fill="#17A0DB" d="M37.27,72.83c-4.13,0-11.51,0-19.62,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.53-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.13,2.62Z"/><path fill="#A4D17C" d="M49.13,41.33c4.13,0,11.52,0,19.63,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75-.55-1.43-1.52-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.43,2.62,2.12,2.62Z"/><path fill="#74CCCD" d="M37.27,41.33c-4.13,0-11.52,0-19.63,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.52-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.12,2.62Z"/></svg>
-  </div>
-  <div class="progress"><div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
   <div class="q-label">Question 1 of 3</div>
   <div class="q-title">What do you want to focus on?</div>
   <div class="q-sub">Pick the area that would make the biggest difference right now.</div>
 
-  <div class="group-label">Start here — no case materials needed</div>
+  <div class="group-label">Start here — nothing confidential goes in</div>
   <div class="options" id="q1-options">
     <button class="option" onclick="selectOption('q1','writing')" id="q1-writing">Writing & communication<div class="opt-sub">Emails, letters, correspondence</div></button>
     <button class="option" onclick="selectOption('q1','research')" id="q1-research">Research & staying current<div class="opt-sub">Digesting articles, tracking developments</div></button>
@@ -318,13 +311,17 @@ input{-webkit-user-select:text;user-select:text}
   <div class="group-label deeper">Ready to go deeper</div>
   <div class="options">
     <button class="option" onclick="selectOption('q1','hearing')" id="q1-hearing">Hearing prep & organization<div class="opt-sub">Structuring thinking, building frameworks</div></button>
-    <button class="option" onclick="selectOption('q1','award')" id="q1-award">Award drafting support<div class="opt-sub">Structure and formatting — not the reasoning</div></button>
+    <button class="option" onclick="selectOption('q1','award')" id="q1-award">Award structure & formatting<div class="opt-sub">Just the bones, not the reasoning</div></button>
     <button class="option" onclick="selectOption('q1','practice')" id="q1-practice">Practice development & marketing<div class="opt-sub">Bios, panel rosters, visibility</div></button>
   </div>
 
   <div class="nav">
     <button class="btn btn-ghost" onclick="goTo('screen-welcome')">← Back</button>
+    <div class="progress"><div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
     <button class="btn btn-primary" id="q1-next" disabled onclick="goTo('screen-q2')">Next →</button>
+  </div>
+  <div class="logo">
+    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
   </div>
 </div>
 </div>
@@ -332,10 +329,6 @@ input{-webkit-user-select:text;user-select:text}
 <!-- SCREEN 3: Question 2 -->
 <div class="screen" id="screen-q2">
 <div class="card">
-  <div class="logo">
-    <svg class="mt-icon" viewBox="0 0 86.4 88.57" aria-label="Mindteam"><path fill="#32B456" d="M49.14,72.83c4.13,0,11.51,0,19.62,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85-.04-11.48-.04-21.57,0-.75-.52-1.43-1.48-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.44,2.62,2.13,2.62Z"/><path fill="#17A0DB" d="M37.27,72.83c-4.13,0-11.51,0-19.62,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.53-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.13,2.62Z"/><path fill="#A4D17C" d="M49.13,41.33c4.13,0,11.52,0,19.63,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75-.55-1.43-1.52-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.43,2.62,2.12,2.62Z"/><path fill="#74CCCD" d="M37.27,41.33c-4.13,0-11.52,0-19.63,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.52-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.12,2.62Z"/></svg>
-  </div>
-  <div class="progress"><div class="progress-dot done"></div><div class="progress-dot active"></div><div class="progress-dot"></div></div>
   <div class="q-label">Question 2 of 3</div>
   <div class="q-title">Where are you with AI right now?</div>
   <div class="q-sub">Be honest — there's no wrong answer and it changes what you'll get.</div>
@@ -343,12 +336,16 @@ input{-webkit-user-select:text;user-select:text}
   <div class="options">
     <button class="option" onclick="selectOption('q2','beginner')" id="q2-beginner">Never really used it for work<div class="opt-sub">I've heard about it but haven't tried it seriously</div></button>
     <button class="option" onclick="selectOption('q2','occasional')" id="q2-occasional">Tried it a few times<div class="opt-sub">I know the basics but haven't made it a habit</div></button>
-    <button class="option" onclick="selectOption('q2','regular')" id="q2-regular">Use it regularly<div class="opt-sub">I want to go deeper and get more systematic</div></button>
+    <button class="option" onclick="selectOption('q2','regular')" id="q2-regular">Use it regularly<div class="opt-sub">I'm comfortable but want to be smarter about it</div></button>
   </div>
 
   <div class="nav">
     <button class="btn btn-ghost" onclick="goTo('screen-q1')">← Back</button>
+    <div class="progress"><div class="progress-dot done"></div><div class="progress-dot active"></div><div class="progress-dot"></div></div>
     <button class="btn btn-primary" id="q2-next" disabled onclick="goTo('screen-q3')">Next →</button>
+  </div>
+  <div class="logo">
+    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
   </div>
 </div>
 </div>
@@ -356,16 +353,13 @@ input{-webkit-user-select:text;user-select:text}
 <!-- SCREEN 4: Question 3 -->
 <div class="screen" id="screen-q3">
 <div class="card">
-  <div class="logo">
-    <svg class="mt-icon" viewBox="0 0 86.4 88.57" aria-label="Mindteam"><path fill="#32B456" d="M49.14,72.83c4.13,0,11.51,0,19.62,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85-.04-11.48-.04-21.57,0-.75-.52-1.43-1.48-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.44,2.62,2.13,2.62Z"/><path fill="#17A0DB" d="M37.27,72.83c-4.13,0-11.51,0-19.62,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.53-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.13,2.62Z"/><path fill="#A4D17C" d="M49.13,41.33c4.13,0,11.52,0,19.63,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75-.55-1.43-1.52-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.43,2.62,2.12,2.62Z"/><path fill="#74CCCD" d="M37.27,41.33c-4.13,0-11.52,0-19.63,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.52-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.12,2.62Z"/></svg>
-  </div>
-  <div class="progress"><div class="progress-dot done"></div><div class="progress-dot done"></div><div class="progress-dot active"></div></div>
   <div class="q-label">Question 3 of 3</div>
   <div class="q-title">What's your biggest hesitation?</div>
   <div class="q-sub">Your plan will address this directly.</div>
 
   <div class="options">
     <button class="option" onclick="selectOption('q3','confidentiality')" id="q3-confidentiality">Confidentiality — I can't put case materials in<div class="opt-sub">I'm not sure what's safe to share with an AI tool</div></button>
+    <button class="option" onclick="selectOption('q3','tools')" id="q3-tools">Tools & cost — not sure what to use or pay for<div class="opt-sub">Too many options, not sure what's worth my money</div></button>
     <button class="option" onclick="selectOption('q3','accuracy')" id="q3-accuracy">Accuracy — I don't trust it to get things right<div class="opt-sub">I've seen it hallucinate and make things up</div></button>
     <button class="option" onclick="selectOption('q3','ethics')" id="q3-ethics">Ethics — I'm not sure what's allowed<div class="opt-sub">I'm unclear on professional responsibility boundaries</div></button>
     <button class="option" onclick="selectOption('q3','none')" id="q3-none">Honestly, not much — I'm just getting started<div class="opt-sub">Ready to dive in</div></button>
@@ -373,7 +367,11 @@ input{-webkit-user-select:text;user-select:text}
 
   <div class="nav">
     <button class="btn btn-ghost" onclick="goTo('screen-q2')">← Back</button>
+    <div class="progress"><div class="progress-dot done"></div><div class="progress-dot done"></div><div class="progress-dot active"></div></div>
     <button class="btn btn-primary" id="q3-next" disabled onclick="buildPlan()">Build my plan →</button>
+  </div>
+  <div class="logo">
+    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
   </div>
 </div>
 </div>
@@ -381,9 +379,6 @@ input{-webkit-user-select:text;user-select:text}
 <!-- SCREEN 5: Plan -->
 <div class="screen plan-screen" id="screen-plan">
   <div class="plan-header">
-    <div class="logo">
-      <svg class="mt-icon" viewBox="0 0 86.4 88.57" aria-label="Mindteam"><path fill="#32B456" d="M49.14,72.83c4.13,0,11.51,0,19.62,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85-.04-11.48-.04-21.57,0-.75-.52-1.43-1.48-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.44,2.62,2.13,2.62Z"/><path fill="#17A0DB" d="M37.27,72.83c-4.13,0-11.51,0-19.62,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.53-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.13,2.62Z"/><path fill="#A4D17C" d="M49.13,41.33c4.13,0,11.52,0,19.63,0,1.9,0,2.29-1.07,2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75-.55-1.43-1.52-1.7-4.72-1.29-22.52,8.73-22.52,22.87,0,1.54.43,2.62,2.12,2.62Z"/><path fill="#74CCCD" d="M37.27,41.33c-4.13,0-11.52,0-19.63,0-1.9,0-2.29-1.07-2.29-2.23,0-8.85,0-11.48,0-21.57,0-.75.56-1.43,1.52-1.7,4.72-1.29,22.52,8.73,22.52,22.87,0,1.54-.44,2.62-2.12,2.62Z"/></svg>
-    </div>
     <div class="plan-title" id="plan-title">Your <strong>5-day plan</strong> is ready.</div>
     <div class="plan-meta" id="plan-meta"></div>
   </div>
@@ -409,7 +404,10 @@ input{-webkit-user-select:text;user-select:text}
   </div>
 
   <div class="plan-footer">
-    <a href="https://mindteam.ai" target="_blank">mindteam.ai</a> &nbsp;·&nbsp; Questions? Reach out to Carl at carl@mindteam.ai
+    <div class="logo">
+      <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
+    </div>
+    <div class="plan-footer-text"><a href="https://mindteam.ai" target="_blank">mindteam.ai</a> &nbsp;·&nbsp; Questions? Reach out to Carl at carl@mindteam.ai</div>
   </div>
 
   <!-- Next visitor reset (shown after capture) -->
@@ -727,6 +725,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ─── Plan content library ────────────────────────────────
 const HESITATION_NOTES = {
   confidentiality: `<strong>About confidentiality:</strong> Nothing in this plan asks you to put case materials, client names, or sensitive information into an AI tool. Every example uses fictional scenarios. The rule of thumb throughout: if you wouldn't say it out loud in a coffee shop, don't type it into AI. You'll find a short note on this wherever it's relevant.`,
+  tools: `<strong>About tools and cost:</strong> The short version — for almost everything in this plan, the free tier of either ChatGPT or Claude is enough. You don't need to pay for anything to start. If you want longer documents, file uploads, or more reliable answers, the paid tier (~$20/month) helps; if you're handling anything sensitive at scale, look into the business plans that don't train on your inputs. Pick one tool, learn it well, ignore the rest for now.`,
   accuracy: `<strong>About accuracy:</strong> AI gets things wrong. This plan is built around that reality — every day includes a "what to check" note so you know exactly what to verify before you use anything it produces. Think of it as a capable first-draft assistant, not a source of truth.`,
   ethics: `<strong>About professional responsibility:</strong> This plan focuses entirely on the business side of your practice — correspondence, research, scheduling, admin. Nothing here touches your decision-making, your judgment, or your mandate as an arbitrator. The framing throughout: AI for the <em>business</em> of arbitration, not the practice of it.`,
   none: `<strong>You're ready to go.</strong> This plan gets straight to it — no lengthy caveats, just specific steps and real examples. Day 1 takes less than 30 minutes.`
