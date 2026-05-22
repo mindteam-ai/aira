@@ -78,8 +78,8 @@ body{font-family:'Lato',sans-serif;color:#fff;min-height:100vh;background:linear
 .plan-tag strong{color:#fff;font-weight:400}
 
 .plan-body{max-width:720px;margin:0 auto;padding:8px 24px 40px}
-.hesitation-note{background:rgba(255,255,255,0.96);border-left:3px solid #17a0db;border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:28px;font-size:14px;color:#333;line-height:1.6;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-.hesitation-note strong{color:#1a1a1a;font-weight:400}
+.hesitation-note{background:transparent;border:none;border-radius:0;padding:0;margin-bottom:32px;font-size:15px;color:rgba(255,255,255,0.85);line-height:1.6;box-shadow:none}
+.hesitation-note strong{color:#fff;font-weight:400}
 
 /* Day cards — white tiles on gradient */
 .day-card{background:#fff;border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
@@ -157,6 +157,7 @@ input{-webkit-user-select:text;user-select:text}
 /* Bump sizes for tablet viewing — iPad portrait optimized */
 @media (min-width: 700px) {
   .screen{padding:40px 32px;justify-content:flex-start;padding-top:64px}
+  #screen-welcome.screen{justify-content:center;padding-top:40px}
   .card{max-width:820px;padding:0}
   .welcome-title{font-size:58px;margin-bottom:22px;line-height:1.1}
   .welcome-sub{font-size:23px;margin-bottom:48px;max-width:760px;line-height:1.5}
@@ -180,7 +181,7 @@ input{-webkit-user-select:text;user-select:text}
   .plan-title{font-size:42px;line-height:1.15}
   .plan-tag{font-size:14px;padding:6px 16px}
   .plan-body{max-width:820px;padding:8px 32px 48px}
-  .hesitation-note{font-size:16px;padding:20px 24px}
+  .hesitation-note{font-size:18px;padding:0;margin-bottom:40px;line-height:1.55}
   .day-header{padding:28px 32px;gap:22px}
   .day-num{width:48px;height:48px;font-size:16px}
   .day-title{font-size:20px}
@@ -320,9 +321,6 @@ input{-webkit-user-select:text;user-select:text}
     <div class="progress"><div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div></div>
     <button class="btn btn-primary" id="q1-next" disabled onclick="goTo('screen-q2')">Next →</button>
   </div>
-  <div class="logo">
-    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
-  </div>
 </div>
 </div>
 
@@ -343,9 +341,6 @@ input{-webkit-user-select:text;user-select:text}
     <button class="btn btn-ghost" onclick="goTo('screen-q1')">← Back</button>
     <div class="progress"><div class="progress-dot done"></div><div class="progress-dot active"></div><div class="progress-dot"></div></div>
     <button class="btn btn-primary" id="q2-next" disabled onclick="goTo('screen-q3')">Next →</button>
-  </div>
-  <div class="logo">
-    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
   </div>
 </div>
 </div>
@@ -369,9 +364,6 @@ input{-webkit-user-select:text;user-select:text}
     <button class="btn btn-ghost" onclick="goTo('screen-q2')">← Back</button>
     <div class="progress"><div class="progress-dot done"></div><div class="progress-dot done"></div><div class="progress-dot active"></div></div>
     <button class="btn btn-primary" id="q3-next" disabled onclick="buildPlan()">Build my plan →</button>
-  </div>
-  <div class="logo">
-    <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
   </div>
 </div>
 </div>
@@ -404,9 +396,6 @@ input{-webkit-user-select:text;user-select:text}
   </div>
 
   <div class="plan-footer">
-    <div class="logo">
-      <svg class="mt-logo" viewBox="0 0 635.27 87.09" aria-label="Mindteam"><use href="#mt-logo-white"/></svg>
-    </div>
     <div class="plan-footer-text"><a href="https://mindteam.ai" target="_blank">mindteam.ai</a> &nbsp;·&nbsp; Questions? Reach out to Carl at carl@mindteam.ai</div>
   </div>
 
